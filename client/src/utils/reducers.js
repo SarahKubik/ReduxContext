@@ -1,43 +1,50 @@
-
 import {
   UPDATE_PRODUCTS,
-  ADD_TO_CART,
-  UPDATE_CART_QUANTITY,
-  REMOVE_FROM_CART,
-  ADD_MULTIPLE_TO_CART,
   UPDATE_CATEGORIES,
   UPDATE_CURRENT_CATEGORY,
+  ADD_TO_CART,
+  ADD_MULTIPLE_TO_CART,
+  REMOVE_FROM_CART,
+  UPDATE_CART_QUANTITY,
   CLEAR_CART,
   TOGGLE_CART
-} from "./actions";
+} from './actions';
 
-const defaultState ={
+const initialState = {
   products: [],
-  categories: [],
-  currentCategory: '',
   cart: [],
   cartOpen: false,
-
+  categories: [],
+  currentCategory: '',
 }
+  //If action type equals the below case, a new state object will be returned with an updated array for the said case
+  const useProductReducer = (state = initialState, action) => {
+    switch (action.type) {
+      case UPDATE_PRODUCTS:
+        return {
+          ...state,
+          products: [...action.products],
+        };
 
-//If action type equals the below case, a new state object will be returned with an updated array for the said case
 
-const reducer = (state=defaultState, action) => {
-  switch (action.type) {
-    case UPDATE_PRODUCTS:
-      return {
+      case UPDATE_CATEGORIES:
+        return {
         ...state,
-        products: [...action.products],
+        categories: [...action.categories]
       };
 
+      case UPDATE_CURRENT_CATEGORY:
+        return {
+        ...state,
+        currentCategory: action.currentCategory
+      };
 
-    case ADD_TO_CART:
+      case ADD_TO_CART:
       return {
         ...state,
         cartOpen: true,
-        cart: [...state.cart, action.product],
+        cart: [...state.cart, action.product]
       };
-
 
       case ADD_MULTIPLE_TO_CART:
       return {
@@ -45,22 +52,7 @@ const reducer = (state=defaultState, action) => {
         cart: [...state.cart, ...action.products],
       };
 
-
-
-      case UPDATE_CART_QUANTITY:
-      return {
-        ...state,
-        cartOpen: true,
-        cart: state.cart.map(product => {
-          if (action._id === product._id) {
-            product.purchaseQuantity = action.purchaseQuantity
-          }
-          return product
-        })
-      };
-
-
-     case REMOVE_FROM_CART:
+      case REMOVE_FROM_CART:
       let newState = state.cart.filter(product => {
         return product._id !== action._id;
       });
@@ -71,7 +63,17 @@ const reducer = (state=defaultState, action) => {
         cart: newState
       };
 
-
+      case UPDATE_CART_QUANTITY:
+      return {
+        ...state,
+        cartOpen: true,
+        cart: state.cart.map(product => {
+          if (action._id === product._id) {
+            product.purchaseQuantity = action.purchaseQuantity;
+          }
+          return product;
+        })
+      };
 
       case CLEAR_CART:
       return {
@@ -79,37 +81,17 @@ const reducer = (state=defaultState, action) => {
         cartOpen: false,
         cart: []
       };
-
-
+     
       case TOGGLE_CART:
       return {
         ...state,
         cartOpen: !state.cartOpen
       };
 
-
-      case UPDATE_CATEGORIES:
-      return {
-        ...state,
-        categories: [...action.categories],
-      };
-
-
-      case UPDATE_CURRENT_CATEGORY:
-        return {
-          ...state,
-          currentCategory: action.currentCategory
-        }
-
-      //When no updates are done via the above the actions, the state remains the same
-
-    default:
-      return state;
-  }
-};
-
-// export function useProductReducer(initialState) {
-//   return useReducer(reducer, initialState)
-// }
+	      //When no updates are done via the above the actions, the state remains the same
+      default:
+        return state;
+    }
+  };
 
 export default reducer;
