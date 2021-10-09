@@ -3,7 +3,7 @@ import { Link, useParams } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
 
 import Cart from '../components/Cart';
-import { useStoreContext } from '../utils/GlobalState';
+// import { useStoreContext } from '../utils/GlobalState';
 import {
   REMOVE_FROM_CART,
   UPDATE_CART_QUANTITY,
@@ -20,6 +20,8 @@ function Detail() {
 
 
   const state = useSelector(state => state);
+
+  const dispatch = useDispatch();
 
   const { id } = useParams();
 

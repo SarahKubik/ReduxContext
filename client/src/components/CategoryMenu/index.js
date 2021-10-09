@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useQuery } from '@apollo/client';
-import { useStoreContext } from '../../utils/GlobalState';
+// import { useStoreContext } from '../../utils/GlobalState';
 import {
   UPDATE_CATEGORIES,
   UPDATE_CURRENT_CATEGORY,
@@ -14,7 +14,7 @@ function CategoryMenu() {
   const state = useSelector(state => state);
 
   const dispatch = useDispatch();
-  
+
   const { categories } = state;
 
   const { loading, data: categoryData } = useQuery(QUERY_CATEGORIES);
@@ -48,7 +48,7 @@ function CategoryMenu() {
   return (
     <div>
       <h2>Choose a Category:</h2>
-      {categories.map((item) => (
+      {categories.map(item => (
         <button
           key={item._id}
           onClick={() => {
