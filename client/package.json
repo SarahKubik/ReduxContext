@@ -41,7 +41,6 @@
     ]
   },
   "devDependencies": {
-    "@modus/gimbal": "^1.2.6",
     "redux-devtools": "^3.7.0"
   }
 }

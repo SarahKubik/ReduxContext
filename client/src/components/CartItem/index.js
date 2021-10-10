@@ -41,10 +41,7 @@ const dispatch = useDispatch();
   return (
     <div className="flex-row">
       <div>
-        <img
-          src={`/images/${item.image}`}
-          alt=""
-        />
+        <img src={`/images/${item.image}`} id="product image"/>
       </div>
       <div>
         <div>{item.name}, ${item.price}</div>

@@ -10,16 +10,13 @@ import { useSelector, useDispatch } from "react-redux";
 
 function ProductList() {
   // const [state, dispatch] = useStoreContext();
-  const state = useSelector((state) => state.UPDATE_PRODUCTS);
+  const state = useSelector((state) => state);
 
   const dispatch = useDispatch();
 
   const { currentCategory } = state;
 
   const { loading, data } = useQuery(QUERY_PRODUCTS);
-  // const [data, setData] = useState([]);
-  // const [loading, setLoading] = useState(false);
-  // const [error, setError] = useState();
 
   useEffect(() => {
     if (data) {
