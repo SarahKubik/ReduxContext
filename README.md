@@ -20,4 +20,19 @@ THEN I find that the app uses Redux instead of the Context API
 
 ## Mock-Up
 
-## Getting Started
+![Startup of client](./client/public/images/startup.png)
+
+## Installation
+
+* React
+* Redux
+* Yarn
+* NPM
+* Apollo/GraphQL
+* Concurrently
+
+## Links
+
+Github: <https://github.com/SarahKubik/ReduxNoContext.git>
+
+URL: <https://sarahkubik.github.io/ReduxNoContext/>
