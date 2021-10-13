@@ -1,28 +1,20 @@
 import React, { useEffect } from 'react';
-import { useQuery } from '@apollo/client';
-import { QUERY_CATEGORIES } from '../../utils/queries';
-import { useSelector, useDispatch } from 'react-redux'
 import { UPDATE_CATEGORIES, UPDATE_CURRENT_CATEGORY } from '../../utils/actions';
+import { useQuery } from '@apollo/react-hooks';
+import { QUERY_CATEGORIES } from "../../utils/queries";
+import { useSelector, useDispatch } from 'react-redux';
+
 import { idbPromise } from '../../utils/helpers';
 
-
-function CategoryMenu() {
-
-  const state = useSelector((state) => {
-    return state
-  });
-
+function CategoryMenu({ setCategory }) {
+  const state = useSelector((state) => state);
   const dispatch = useDispatch();
 
-
   const { categories } = state;
-
   const { loading, data: categoryData } = useQuery(QUERY_CATEGORIES);
 
   useEffect(() => {
-    // if categoryData exists or has changed from the response of useQuery, then run dispatch()
     if (categoryData) {
-      // execute our dispatch function with our action object indicating the type of action and the data to set our state for categories to
       dispatch({
         type: UPDATE_CATEGORIES,
         categories: categoryData.categories
@@ -47,11 +39,10 @@ function CategoryMenu() {
     });
   };
 
-
   return (
     <div>
       <h2>Choose a Category:</h2>
-      {categories?.map(item => (
+      {categories.map(item => (
         <button
           key={item._id}
           onClick={() => {
