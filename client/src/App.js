@@ -9,7 +9,7 @@ import NoMatch from "./pages/NoMatch";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import Nav from "./components/Nav";
-import Success from "./pages/Sucess";
+import Success from "./pages/Success";
 // Redux store
 import { Provider } from 'react-redux';
 import store from './redux/store';
