@@ -19,7 +19,9 @@ function Detail() {
   // const [state, dispatch] = useStoreContext();
 
 
-  const state = useSelector(state => state);
+  const state = useSelector((state) => {
+    return state
+  });
 
   const dispatch = useDispatch();
 
@@ -34,7 +36,7 @@ function Detail() {
   useEffect(() => {
     // already in global store
     if (products.length) {
-      setCurrentProduct(products.find((product) => product._id === id));
+      setCurrentProduct(products.find(product => product._id === id));
     }
     // retrieved from server
     else if (data) {
@@ -59,7 +61,7 @@ function Detail() {
   }, [products, data, loading, dispatch, id]);
 
   const addToCart = () => {
-    const itemInCart = cart.find((cartItem) => cartItem._id === id);
+    const itemInCart = cart.find(cartItem => cartItem._id === id);
     if (itemInCart) {
       dispatch({
         type: UPDATE_CART_QUANTITY,
