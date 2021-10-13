@@ -12,7 +12,7 @@ import Nav from "./components/Nav";
 import Success from "./pages/Success";
 // Redux store
 import { Provider } from 'react-redux';
-import store from './redux/store';
+import store from './utils/store';
 import OrderHistory from "./pages/OrderHistory";
 
 // custom React Hook
