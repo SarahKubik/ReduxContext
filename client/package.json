@@ -11,6 +11,7 @@
     "@testing-library/user-event": "^7.1.2",
     "apollo-boost": "^0.4.9",
     "bootstrap": "^4.4.1",
+    "classlist.js": "^1.1.20150312",
     "graphql": "^15.4.0",
     "graphql-tag": "^2.11.0",
     "jwt-decode": "^2.2.0",
