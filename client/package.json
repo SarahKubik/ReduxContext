@@ -21,7 +21,8 @@
     "react-scripts": "3.4.1",
     "reduct": "^3.3.1",
     "redux": "^4.1.0",
-    "stripe": "^8.163.0"
+    "stripe": "^8.163.0",
+    "use-effect-x": "^0.1.5"
   },
   "scripts": {
     "start": "react-scripts start",
