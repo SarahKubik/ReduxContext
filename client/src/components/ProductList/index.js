@@ -10,7 +10,9 @@ import { useSelector, useDispatch } from "react-redux";
 
 function ProductList() {
   // const [state, dispatch] = useStoreContext();
-  const state = useSelector((state) => state);
+  const state = useSelector((state) => {
+    return state
+  });
 
   const dispatch = useDispatch();
 
@@ -42,9 +44,8 @@ function ProductList() {
       return state.products;
     }
 
-    return state.products.filter(
-      (product) => product.category._id === currentCategory
-    );
+    return state.products.filter
+      (product => product.category._id === currentCategory);
   }
 
   return (
