@@ -36,3 +36,5 @@ THEN I find that the app uses Redux instead of the Context API
 Github: <https://github.com/SarahKubik/ReduxNoContext.git>
 
 URL: <https://sarahkubik.github.io/ReduxNoContext/>
+
+Heroku: <https://reduxnocontext.herokuapp.com/>
