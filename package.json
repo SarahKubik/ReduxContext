@@ -8,14 +8,22 @@
     "start:prod": "cd server && npm start",
     "start:dev": "concurrently \"cd server && npm run watch\" \"cd client && npm start\"",
     "install": "cd server && npm i && cd ../client && npm i",
-    "seed": "cd server && npm run seed"
+    "seed": "cd server && npm run seed",
+    "heroku-postbuild": "cd client && npm run build"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "if-env": "^1.0.4"
+    "@reduxjs/toolkit": "^1.5.1",
+    "apollo-server-express": "^2.22.2",
+    "graphql": "^15.5.1",
+    "if-env": "^1.0.4",
+    "react-redux": "^7.2.3",
+    "redux": "^4.0.5",
+    "redux-devtools-extension": "^2.13.9",
+    "stripe": "^8.141.0"
   },
   "devDependencies": {
-    "concurrently": "^6.3.0"
+    "concurrently": "^5.1.0"
   }
 }
